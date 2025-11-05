@@ -1,0 +1,564 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 90px;
+  display: flex; 
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.home, body.history, body.festival, body.tourist, body.aboutme {
+  color: white; 
+}
+
+body.home::before,
+body.history::before,
+body.festival::before,
+body.tourist::before,
+body.aboutme::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+body.home { background-image: url("../photos/PASUQUIN-HOME.jpg"); }
+body.history { background-image: url("../photos/history-bg.jpg"); }
+body.festival { background-image: url("../photos/festival-bg.jpg"); }
+body.tourist { background-image: url("../photos/tourist-bg.jpg"); }
+body.aboutme { background-image: url("../photos/about\ me\ bg.jpg");}
+
+
+
+nav {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 5%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 0 0 10px 10px;
+  height: 120px;
+}
+
+nav .logo img {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  margin: 0 50px;
+  font-family: 'amoera', sans-serif;
+  font-size: medium;
+  font-weight: bold;  
+  transition: all 0.4s ease;
+  align-items: center;
+}
+
+nav a.active-link {
+  color: #68ffcd;
+  text-shadow: 0 0 5px rgba(104, 255, 205, 0.8);
+}
+
+nav a.active-link::after {
+  width: 100%; 
+}
+
+
+nav a.active-link:hover {
+  color: #68ffcd;
+  text-shadow: 0 0 5px rgba(104, 255, 205, 0.8);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: #68ffcd;
+  box-shadow: 0 0 10px #68ffcd, 0 0 20px #00ffff;
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #68ffcd;
+  text-shadow: 0 0 5px rgba(104, 255, 205, 0.8);
+}
+
+nav a::before {
+    display: none;
+}
+
+
+section {
+  padding: 40px 10%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  flex: 1; 
+}
+
+section h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: #fff7f7;
+  font-family: 'amoera', sans-serif;
+  font-style: italic;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.card {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px; 
+  max-width: 100%;
+  color: white;
+}
+body.home .card {
+  width: calc(50% - 10px); 
+  max-width: 450px; 
+  padding: 0; 
+  background: none;
+  backdrop-filter: none;
+}
+body.home .card img {
+  width: 100%; 
+  height: 300px;
+  border-radius: 20px; 
+}
+body.history .card,
+body.festival .card,
+body.tourist .card {
+  width: 100%; 
+  max-width: 800px;
+}
+
+body.history .card img,
+body.festival .card img,
+body.tourist .card img {
+  width: 100%;
+  max-width: 450px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 0 0 15px 0;
+}
+
+.card p b {
+  display: block; 
+  text-align: center; 
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #68ffcd; 
+  font-family: 'amoera', sans-serif;
+  margin-top: 0;
+}
+
+.card p.kingkong,
+.card p.Kalitungan,
+.card p.beach,
+.card p.pugagao,
+.card p.history1, 
+.card p.Panagsana,
+.card p.Dumadara {
+  background: none; 
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 15px;
+  text-align: justify;
+  margin: 10px 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  padding: 0; 
+}
+
+.card img{
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 10px;
+}
+.card img:hover {
+  transform: scale(1.08);
+  filter: brightness(90%);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+.card p {
+  margin-top: 10px;
+  text-align: center;
+  background: none;
+  backdrop-filter: none;
+}
+
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.about-image img {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 50px;
+  border-radius: 20px; 
+}
+
+.about-text { 
+    flex: 1;
+    min-width: 250px;
+    text-align: justify;
+}
+
+.about-text h2 { 
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.about-text p { 
+background: none; 
+backdrop-filter: none;
+-webkit-backdrop-filter: none;
+border-radius: 15px;
+text-align: justify;
+margin: 10px 0;
+font-family: 'Times New Roman', Times, serif;
+font-style: italic;
+padding: 0; 
+max-width: 760px;
+}
+
+.hero-intro {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; 
+    z-index: 5;
+    color: white; 
+    padding: 0 10%;
+    margin-top: 30px;
+
+   
+    background-image: url('../photos/ABOUT\ ME.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 400px;
+}
+
+.hero-intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+.hero-intro h1 {
+    font-size: 100px; 
+    margin-bottom: 20px;
+    font-family: 'Major Mono Display', sans-serif;
+    color: #68ffcd; 
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    position: relative; 
+    z-index: 1; 
+}
+
+.hero-intro p {
+    font-size: 1.5em;
+    font-style: italic;
+    color: white;
+    position: relative; 
+    z-index: 1; 
+}
+
+
+footer {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  width: 100%;
+  margin-top: auto; 
+}
+
+
+
+@media (max-width: 992px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 60px; 
+  }
+  nav .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  body {
+    padding-top: 180px; 
+  }
+  section {
+    padding: 60px 5%;
+  }
+  
+  body.history .card,
+  body.festival .card,
+  body.tourist .card {
+    max-width: 90%;
+  }
+}
+
+ @media (max-width: 768px) {
+  .about-section {
+      flex-direction: column;
+      text-align: center;
+  }
+  .about-text p {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 40px 5%;
+  }
+  section h2 {
+    font-size: 25px;
+  }
+  .card {
+    width: 100%;
+  }
+    body.home .card {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        margin: 30px auto;
+        padding: 15px;
+    }
+    .about-image {
+        
+        order: -1; 
+    }
+    .about-image img {
+        max-width: 250px;
+    }
+}
+
+
+
+
+
+ .nav-check-input {
+    display: none;
+}
+
+
+.nav-toggle-label {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute; 
+    top: 25px;
+    right: 20px;
+    z-index: 1001; 
+}
+
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px auto;
+    background-color: #68ffcd; 
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+    .nav-toggle-label {
+        display: block;
+    }
+    
+    
+    nav {
+       
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        padding-top: 10px;
+    }
+    
+    nav .logo {
+        position: static;
+        top: auto; 
+        left: auto;
+    }
+
+    
+    .nav-links {
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        
+
+        display: flex; 
+        flex-direction: column; 
+        text-align: center;
+        
+        
+        background: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        
+      
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: max-height 0.4s ease-in-out;
+    }
+    
+    
+    .nav-links a {
+        margin: 10px 0; 
+        padding: 10px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        display: block; 
+    }
+
+    #nav-check:checked ~ .nav-links {
+        max-height: 400px; 
+         padding: 20px 0;
+
+    
+    #nav-check:checked ~ .nav-toggle-label .bar:nth-child(2) {
+        opacity: 0;
+    }
+    #nav-check:checked ~ .nav-toggle-label .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+     }
+    #nav-check:checked ~ .nav-toggle-label .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    
+    body {
+        padding-top: 90px; 
+    }
+} 
+
+
+
+
+
+
+
+
+/* @media (max-width: 414px) {
+   section {
+    padding: 40px 5%;
+  }
+  section h2 {
+    font-size: 25px;
+  }
+  .card {
+    width: 100%;
+  }
+    body.home .card {
+    width: 100%;
+  
+  }
+}
+
+@media (min-width: 415px) and (max-width: 428px) {
+   section {
+    padding: 40px 5%;
+  }
+  section h2 {
+    font-size: 25px;
+  }
+  .card {
+    width: 100%;
+  }
+    body.home .card {
+    width: 100%;
+  
+  }
