@@ -37,11 +37,11 @@ body.aboutme::before {
   z-index: -1;
 }
 
-body.home { background-image: url("../photos/PASUQUIN-HOME.jpg"); }
-body.history { background-image: url("../photos/history-bg.jpg"); }
-body.festival { background-image: url("../photos/festival-bg.jpg"); }
-body.tourist { background-image: url("../photos/tourist-bg.jpg"); }
-body.aboutme { background-image: url("../photos/about\ me\ bg.jpg");}
+body.home { background-image: url("../photo/PASUQUIN-HOME.jpg"); }
+body.history { background-image: url("../photo/history-bg.jpg"); }
+body.festival { background-image: url("../photo/festival-bg.jpg"); }
+body.tourist { background-image: url("../photo/tourist-bg.jpg"); }
+body.aboutme { background-image: url("../photo/about\ me\ bg.jpg");}
 
 
 
@@ -523,42 +523,4 @@ footer {
     body {
         padding-top: 90px; 
     }
-} 
-
-
-
-
-
-
-
-
-/* @media (max-width: 414px) {
-   section {
-    padding: 40px 5%;
-  }
-  section h2 {
-    font-size: 25px;
-  }
-  .card {
-    width: 100%;
-  }
-    body.home .card {
-    width: 100%;
-  
-  }
 }
-
-@media (min-width: 415px) and (max-width: 428px) {
-   section {
-    padding: 40px 5%;
-  }
-  section h2 {
-    font-size: 25px;
-  }
-  .card {
-    width: 100%;
-  }
-    body.home .card {
-    width: 100%;
-  
-  }
